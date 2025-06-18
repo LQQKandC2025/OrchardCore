@@ -90,4 +90,6 @@
 
   <Import Project="..\..\src\OrchardCore.Build\OrchardCore.Commons.targets" />
 
+  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
+
 </Project>
