@@ -1,5 +1,18 @@
+@* CustomerDashboard/Views/Shared/_Layout.cshtml *@
 @{
-    // TheAdmin temasının kendi Layout.cshtml'ünü kullan:
-    Layout = "~/Areas/TheAdmin/Views/Layout.cshtml";
+    // modülünüzün view'ı önce buraya bakar,
+    // sonra burada RenderBody ile gövdeyi yerleştirir
+    Layout = null;
 }
-@RenderBody()
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"]</title>
+    @* ... diğer head elemanları ... *@
+</head>
+<body>
+    @* ... istersen burada statik link, container div vs. ekle ... *@
+    @RenderBody()
+</body>
+</html>

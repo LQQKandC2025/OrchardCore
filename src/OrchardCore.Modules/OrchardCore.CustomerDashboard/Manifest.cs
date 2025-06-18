@@ -6,5 +6,5 @@ using OrchardCore.Modules.Manifest;
     Version = "1.0.0",
     Description = "Müşteri bilgilerini gösterir",
     Category = "Dashboard",
-    Dependencies = new[] { "OrchardCore.Themes.TheAdmin" }
+    Dependencies = new[] { "OrchardCore.Admin", "OrchardCore.Themes.TheAdmin" }
 )]

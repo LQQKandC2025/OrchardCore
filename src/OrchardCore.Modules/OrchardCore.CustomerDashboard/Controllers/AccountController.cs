@@ -1,19 +1,18 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace CustomerDashboard.Controllers
 {
     [Authorize]
-    // [Area("CustomerDashboard")]    ← Bunu **kaldırın**
+       // → MapAreaControllerRoute ile tanımlı areaName ile eşleşmeli
     public class AccountController : Controller
     {
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-            ViewData["Title"] = "Hesap Bilgilerim";
+            ViewData["Title"] = "Hesabım";
             ViewData["Username"] = User.Identity?.Name;
             ViewData["OrderInfo"] = "Sipariş: Koltuk Takımı, Ödenen: 5.000 TL, Kalan: 2.500 TL";
-            return View(); // ~/Areas/CustomerDashboard/Views/Account/Index.cshtml
+            return View();       // ~/Areas/CustomerDashboard/Views/Account/Index.cshtml
         }
     }
 }
