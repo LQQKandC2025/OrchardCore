@@ -583,7 +583,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCore.Indexing.Core",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCore.Taxonomies.Core", "src\OrchardCore\OrchardCore.Taxonomies.Core\OrchardCore.Taxonomies.Core.csproj", "{6A379AE9-B468-4D89-82B2-0C350AB712F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerDashboard", "src\OrchardCore.Modules\OrchardCore.CustomerDashboard\CustomerDashboard.csproj", "{D0B7071C-7B07-1F83-5C98-405D639E8D3E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrchardCore.CustomerDashboard", "src\OrchardCore.Modules\OrchardCore.CustomerDashboard\OrchardCore.CustomerDashboard.csproj", "{D0B7071C-7B07-1F83-5C98-405D639E8D3E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

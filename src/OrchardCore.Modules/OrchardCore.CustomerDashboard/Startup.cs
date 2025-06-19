@@ -23,25 +23,27 @@ namespace CustomerDashboard
             services.AddControllersWithViews();
             services.AddScoped<INavigationProvider, CustomerDashboard.Navigation.CustomerDashboardMenu>();
 
-            // ➊ hangi admin teması aktifse onun root Views klasörünü de arayalım
             services.Configure<RazorViewEngineOptions>(options =>
             {
-                options.AreaViewLocationFormats.Insert(0, "/Areas/{2}/Views/{0}.cshtml");
+                // 1) /Areas/{Area}/Views/Shared/*.cshtml
+                options.AreaViewLocationFormats.Insert(0, "/Areas/{2}/Views/Shared/{0}.cshtml");
+                // 2) /Areas/{Area}/Views/{Controller}/*.cshtml
+                options.AreaViewLocationFormats.Insert(1, "/Areas/{2}/Views/{1}/{0}.cshtml");
+                // 3) /Areas/{Area}/Views/*.cshtml (fallback)
+                options.AreaViewLocationFormats.Insert(2, "/Areas/{2}/Views/{0}.cshtml");
             });
         }
 
         public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            // ➋ mutlaka bu route'u ekleyin:
-            //     /{adminPrefix}/Hesabim => CustomerDashboard/Account/Index
             var prefix = _adminOptions.AdminUrlPrefix?.Trim('/') ?? "Admin";
 
             routes.MapAreaControllerRoute(
-                name: "CustomerDashboard",
-                areaName: "CustomerDashboard",
-                pattern: $"{prefix}/Hesabim",
-                defaults: new { controller = "Account", action = "Index" }
-            );
+            name: "CustomerDashboardCatchAll",
+            areaName: "CustomerDashboard",
+            pattern: $"{prefix}/Customer/{{*path}}",
+            defaults: new { controller = "Account", action = "Index" }
+        );
         }
     }
 }

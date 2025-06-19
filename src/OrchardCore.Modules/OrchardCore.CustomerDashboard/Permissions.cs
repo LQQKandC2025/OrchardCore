@@ -1,6 +1,4 @@
 using OrchardCore.Security.Permissions;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace CustomerDashboard
 {
